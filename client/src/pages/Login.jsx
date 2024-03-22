@@ -4,6 +4,9 @@ import { Navbar } from ".";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { BiUser, BiLockAlt } from "react-icons/bi";
+require("dotenv").config();
+
+const base_url = process.env.REACT_APP_BASE_URL;
 
 const Login = () => {
   const navigate = useNavigate();
@@ -37,7 +40,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:8080/login",
+        `${base_url}/login`,
         {
           ...inputValue
         },

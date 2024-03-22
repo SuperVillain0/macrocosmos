@@ -9,6 +9,7 @@ app = express();
 const authRoute = require("./routes/authRoute");
 const MONGO_URL = process.env.MONGO_URL;
 const PORT = process.env.PORT;
+const CLIENT_URL = process.env.CLIENT_URL;
 
 // MongoDB Connection
 mongoose
@@ -28,7 +29,7 @@ app.listen(PORT, () => {
 // Middlewares
 app.use(
   cors({
-    origin: [`http://localhost:3000`],
+    origin: [`${CLIENT_URL}`],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   })

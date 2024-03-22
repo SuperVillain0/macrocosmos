@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { NavbarHome } from ".";
-// import { Link } from "react-router-dom";
 import axios from "axios";
+require("dotenv").config();
+
+const base_url = process.env.REACT_APP_BASE_URL;
 
 const Home = () => {
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ const Home = () => {
       }
 
       const { data } = await axios.post(
-        "http://localhost:8080",
+        `${base_url}`,
         {},
         { withCredentials: true }
       );
@@ -48,7 +50,7 @@ const Home = () => {
 
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/getlist",
+        `${base_url}/getlist`,
         {},
         { withCredentials: true }
       );
