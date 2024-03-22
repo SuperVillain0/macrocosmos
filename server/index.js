@@ -7,21 +7,22 @@ const cookieParser = require("cookie-parser");
 
 app = express();
 const authRoute = require("./routes/authRoute");
-const { mongo_url, port } = process.env;
+const MONGO_URL = process.env.MONGO_URL;
+const PORT = process.env.PORT;
 
 // MongoDB Connection
 mongoose
-  .connect(mongo_url, {
+  .connect(MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-    // seFindAndModify: false
+    // useFindAndModify: false
   })
   .then(() => console.log("MongoDB is connected successfully"))
   .catch(err => console.error(err));
 
 // Port Listen
-app.listen(port, () => {
-  console.log(`Server is running on port: ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port: ${PORT}`);
 });
 
 // Middlewares
