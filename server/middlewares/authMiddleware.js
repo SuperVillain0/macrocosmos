@@ -30,14 +30,12 @@ module.exports.getList = async (req, res, next) => {
     if (!users) {
       return res.json({
         users: NULL,
-        message: "There is no data available",
         success: false
       });
     }
 
     res.status(200).json({
       users: users,
-      message: "Successfully fetched the data",
       success: true
     });
     next();
