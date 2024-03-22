@@ -54,25 +54,36 @@ const Home = () => {
       );
 
       const users = data.users;
-      users.forEach(user => {
-        const { userId, firstname, lastname, email, username, createdAt } =
-          user;
+      const tableContainer = document.getElementById("content");
 
-        table.innerHTML += `
-          <tr id="-${users.indexOf(user)}">${userId}</tr>
-          <tr id="-${userId}">${firstname} ${lastname}</tr>
-        `;
-      });
-
-      console.log(data);
+      tableContainer.innerHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>Full Name</th>
+              <th>Username</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${users
+              .map(
+                user => `
+              <tr>
+                <td>${user.firstname} ${user.lastname}</td>
+                <td>${user.username}</td>
+                <td>${user.email}</td>
+              </tr>
+            `
+              )
+              .join("")}
+          </tbody>
+        </table>
+      `;
     } catch (err) {
       console.log(err);
     }
   };
-
-  // const generateHTML = () => {
-  //   document.getElementById("username").innerHTML = `${username}!`;
-  // };
 
   return (
     <div className="wrapper">
@@ -94,45 +105,7 @@ const Home = () => {
               List
             </button>
           </header>
-          <div className="list-content" id="content">
-            {/* <table>
-              <tr>
-                <th>S No.</th>
-                <th>Name</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Date of Creation</th>
-              </tr>
-              <tr>
-                <td>1.</td>
-                <td>bitch ass cunt</td>
-                <td>bitchass</td>
-                <td>asdkjsa@gmail.com</td>
-                <td>March 2024</td>
-              </tr>
-              <tr>
-                <td>2.</td>
-                <td>bitch ass cunt</td>
-                <td>bitchass</td>
-                <td>asdkjsa@gmail.com</td>
-                <td>March 2024</td>
-              </tr>
-              <tr>
-                <td>3.</td>
-                <td>bitch ass cunt</td>
-                <td>bitchass</td>
-                <td>asdkjsa@gmail.com</td>
-                <td>March 2024</td>
-              </tr>
-              <tr>
-                <td>4.</td>
-                <td>bitch ass cunt</td>
-                <td>bitchass</td>
-                <td>asdkjsa@gmail.com</td>
-                <td>March 2024</td>
-              </tr>
-            </table> */}
-          </div>
+          <div className="list-content" id="content"></div>
         </div>
       </div>
     </div>
