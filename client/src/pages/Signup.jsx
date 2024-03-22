@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Navbar } from ".";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { BiUser, BiUserCircle, BiEnvelope, BiLockAlt } from "react-icons/bi";
 
 const Signup = () => {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
+    firstname: "",
+    lastname: "",
+    username: "",
+    dob: "",
     email: "",
-    password: "",
-    username: ""
+    password: ""
   });
 
-  const { email, password, username } = inputValue;
+  const { firstname, lastname, username, dob, email, password } = inputValue;
 
   const handleOnChange = e => {
     const { name, value } = e.target;
@@ -58,58 +63,129 @@ const Signup = () => {
 
     setInputValue({
       ...inputValue,
+      firstname: "",
+      lastname: "",
+      username: "",
+      dob: "",
       email: "",
-      password: "",
-      username: ""
+      password: ""
     });
   };
 
   return (
-    <div className="form_container">
-      <h2>Sign Up Account</h2>
+    <div className="wrapper">
+      <Navbar />
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={email}
-            placeholder="Enter your email"
-            onChange={handleOnChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="username">Username</label>
-          <input
-            type="username"
-            name="username"
-            id="username"
-            value={username}
-            placeholder="Enter your username"
-            onChange={handleOnChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={password}
-            placeholder="Enter your password"
-            onChange={handleOnChange}
-            required
-          />
-        </div>
-        <button type="submit">Sign Up</button>
-        <span>
-          Already have an account? <Link to={"/login"}>Login</Link>
-        </span>
-      </form>
+      <div className="form-box">
+        <form
+          className="register-container"
+          id="register"
+          onSubmit={handleSubmit}
+        >
+          <div className="top">
+            <span>
+              Have an account? <Link to={"/login"}>Login</Link>
+            </span>
+            <header>Sign Up</header>
+          </div>
+          <div className="two-forms">
+            <div className="input-box">
+              <input
+                type="text"
+                name="firstname"
+                id="firstname"
+                value={firstname}
+                onChange={handleOnChange}
+                required
+                className="input-field"
+                placeholder="Firstname"
+              />
+              <span>
+                <BiUser />
+              </span>
+            </div>
+            <div className="input-box">
+              <input
+                type="text"
+                name="lastname"
+                id="lastname"
+                value={lastname}
+                onChange={handleOnChange}
+                required
+                className="input-field"
+                placeholder="Lastname"
+              />
+              <span>
+                <BiUser />
+              </span>
+            </div>
+          </div>
+          <div className="two-forms two-forms-2">
+            <div className="input-box">
+              <input
+                type="text"
+                name="username"
+                id="username"
+                value={username}
+                onChange={handleOnChange}
+                required
+                className="input-field"
+                placeholder="Username"
+              />
+              <span>
+                <BiUserCircle />
+              </span>
+            </div>
+            <div className="input-box">
+              <input
+                type="date"
+                name="dob"
+                id="dob"
+                value={dob}
+                onChange={handleOnChange}
+                required
+                className="input-field"
+                placeholder="Date of Birth"
+              />
+            </div>
+          </div>
+          <div className="input-box">
+            <input
+              type="text"
+              name="email"
+              id="email"
+              value={email}
+              onChange={handleOnChange}
+              required
+              className="input-field"
+              placeholder="Email"
+            />
+            <span>
+              <BiEnvelope />
+            </span>
+          </div>
+          <div className="input-box">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              value={password}
+              onChange={handleOnChange}
+              required
+              className="input-field"
+              placeholder="Password"
+            />
+            <span>
+              <BiLockAlt />
+            </span>
+          </div>
+          <div className="input-box">
+            <button type="submit" className="submit">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

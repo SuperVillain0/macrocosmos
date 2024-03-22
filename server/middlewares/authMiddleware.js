@@ -1,7 +1,6 @@
 const User = require("../models/UserModel");
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
-
 const { token_key } = process.env;
 
 module.exports.userVerification = (req, res) => {
@@ -22,4 +21,27 @@ module.exports.userVerification = (req, res) => {
       }
     }
   });
+};
+
+module.exports.getList = async (req, res, next) => {
+  try {
+    const users = await User.find({});
+
+    if (!users) {
+      return res.json({
+        users: NULL,
+        message: "There is no data available",
+        success: false
+      });
+    }
+
+    res.status(200).json({
+      users: users,
+      message: "Successfully fetched the data",
+      success: true
+    });
+    next();
+  } catch (err) {
+    console.error(err);
+  }
 };

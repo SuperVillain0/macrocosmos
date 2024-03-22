@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Navbar } from ".";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { BiUser, BiLockAlt } from "react-icons/bi";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -63,39 +65,54 @@ const Login = () => {
   };
 
   return (
-    <div className="form_container">
-      <h2>Login Account</h2>
+    <div className="wrapper">
+      <Navbar />
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={email}
-            placeholder="Enter your email"
-            onChange={handleOnChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={password}
-            placeholder="Enter your password"
-            onChange={handleOnChange}
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
-        <span>
-          Do not have an account? <Link to={"/signup"}>Sign Up</Link>
-        </span>
-      </form>
+      <div className="form-box">
+        <form className="login-container" id="login" onSubmit={handleSubmit}>
+          <div className="top">
+            <span>
+              Don't have an account? <Link to={"/signup"}>Sign Up</Link>
+            </span>
+            <header>Login</header>
+          </div>
+          <div className="input-box">
+            <input
+              type="text"
+              name="email"
+              id="email"
+              value={email}
+              onChange={handleOnChange}
+              required
+              className="input-field"
+              placeholder="Email"
+            />
+            <span>
+              <BiUser />
+            </span>
+          </div>
+          <div className="input-box">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              value={password}
+              onChange={handleOnChange}
+              required
+              className="input-field"
+              placeholder="Password"
+            />
+            <span>
+              <BiLockAlt />
+            </span>
+          </div>
+          <div className="input-box">
+            <button type="submit" className="submit">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
