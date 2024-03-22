@@ -15,7 +15,9 @@ function Navbar() {
   return (
     <nav className="nav">
       <div className="nav-logo">
-        <p>LOGO</p>
+        <p>
+          <img className="main-logo" src={require("../images/logo.png")} />
+        </p>
       </div>
       <div className="nav-menu" id="navMenu">
         <ul>

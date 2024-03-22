@@ -15,7 +15,10 @@ body {
 input[type="date"] {
   color-scheme: dark;
 }
-/* ::-webkit-calendar-picker-indicator */
+.main-logo {
+  height: 50px;
+  margin-top: 1.7rem;
+}
 .wrapper {
   display: flex;
   justify-content: center;
