@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { NavbarHome } from ".";
 import axios from "axios";
-require("dotenv").config();
 
 const base_url = process.env.REACT_APP_BASE_URL;
 
@@ -19,7 +18,7 @@ const Home = () => {
       }
 
       const { data } = await axios.post(
-        `${base_url}`,
+        `https://macrocosmos.onrender.com`,
         {},
         { withCredentials: true }
       );
@@ -50,7 +49,7 @@ const Home = () => {
 
     try {
       const { data } = await axios.get(
-        `${base_url}/getlist`,
+        `https://macrocosmos.onrender.com/getlist`,
         {},
         { withCredentials: true }
       );
