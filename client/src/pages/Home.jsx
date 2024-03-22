@@ -4,8 +4,6 @@ import { useCookies } from "react-cookie";
 import { NavbarHome } from ".";
 import axios from "axios";
 
-const base_url = process.env.REACT_APP_BASE_URL;
-
 const Home = () => {
   const navigate = useNavigate();
   const [cookies, removeCookie] = useCookies([]);
@@ -18,7 +16,7 @@ const Home = () => {
       }
 
       const { data } = await axios.post(
-        `https://macrocosmos.onrender.com`,
+        `https://macrocosmos.onrender.com/login`,
         {},
         { withCredentials: true }
       );
