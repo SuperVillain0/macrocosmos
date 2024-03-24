@@ -16,7 +16,11 @@ function Navbar() {
     <nav className="nav">
       <div className="nav-logo">
         <p>
-          <img className="main-logo" src={require("../images/logo.png")} />
+          <img
+            className="main-logo"
+            src={require("../images/logo.png")}
+            alt="LOGO"
+          />
         </p>
       </div>
       <div className="nav-menu" id="navMenu">

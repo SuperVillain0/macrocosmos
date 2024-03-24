@@ -23,14 +23,9 @@ const Home = () => {
 
       const { status, user } = data;
       setUsername(user);
-      // return status
-      //   ? console.log("success")
-      //   : (removeCookie("token"), navigate("/login"));
-      if (status) {
-        return;
-      } else {
-        return removeCookie("token"), navigate("/login");
-      }
+      return status
+        ? console.log("success")
+        : (removeCookie("token"), navigate("/login"));
     };
 
     verifyCookie();
@@ -112,13 +107,3 @@ const Home = () => {
 };
 
 export default Home;
-
-{
-  /* <h4>
-      {" "}
-      Welcome <span>{username} </span>
-    </h4>
-    <button className="btn" onClick={Logout}>
-      Logout
-    </button> */
-}

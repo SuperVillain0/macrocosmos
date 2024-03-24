@@ -5,8 +5,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { BiUser, BiLockAlt } from "react-icons/bi";
 
-const base_url = process.env.REACT_APP_BASE_URL;
-
 const Login = () => {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({

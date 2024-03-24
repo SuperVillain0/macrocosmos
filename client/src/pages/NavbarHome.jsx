@@ -1,6 +1,5 @@
 import React from "react";
 import { BiMenu } from "react-icons/bi";
-import { Link } from "react-router-dom";
 
 function NavbarHome() {
   function myMenuFunction() {
@@ -16,7 +15,11 @@ function NavbarHome() {
     <nav className="nav">
       <div className="nav-logo">
         <p>
-          <img className="main-logo" src={require("../images/logo.png")} />
+          <img
+            className="main-logo"
+            src={require("../images/logo.png")}
+            alt="LOGO"
+          />
         </p>
       </div>
       <div className="nav-menu" id="navMenu">
