@@ -38,9 +38,7 @@ const Login = () => {
     try {
       const { data } = await axios.post(
         `https://macrocosmos.onrender.com/login`,
-        {
-          ...inputValue
-        },
+        { ...inputValue },
         { withCredentials: true }
       );
 
@@ -49,7 +47,7 @@ const Login = () => {
         handleSuccess(message);
         setTimeout(() => {
           navigate("/");
-        }, 2500);
+        }, 1700);
       } else {
         handleError(message);
       }
@@ -69,7 +67,7 @@ const Login = () => {
       <Navbar />
 
       <div className="form-box">
-        <form className="login-container" id="login" onSubmit={handleSubmit}>
+        <form className="login-container" id="login">
           <div className="top">
             <span>
               Don't have an account? <Link to={"/signup"}>Sign Up</Link>
@@ -107,7 +105,7 @@ const Login = () => {
             </span>
           </div>
           <div className="input-box">
-            <button type="submit" className="submit">
+            <button type="submit" className="submit" onClick={handleSubmit}>
               Login
             </button>
           </div>

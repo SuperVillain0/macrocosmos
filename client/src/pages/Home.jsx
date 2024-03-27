@@ -15,17 +15,18 @@ const Home = () => {
         navigate("/login");
       }
 
-      const { data } = await axios.post(
-        `https://macrocosmos.onrender.com/login`,
-        {},
-        { withCredentials: true }
-      );
+      // const { data } = await axios.post(
+      //   `http://localhost:8080/login`,
+      //   {},
+      //   { withCredentials: true }
+      // );
 
-      const { status, user } = data;
-      setUsername(user);
-      return status
-        ? console.log("success")
-        : (removeCookie("token"), navigate("/login"));
+      // const { status, user } = data;
+      // console.log(status, user);
+      // setUsername(user);
+      // return status
+      //   ? console.log("success")
+      //   : (removeCookie("token"), navigate("/login"));
     };
 
     verifyCookie();
