@@ -49,7 +49,7 @@ const Login = () => {
         handleSuccess(message);
         setTimeout(() => {
           navigate("/");
-        }, 2500);
+        }, 1700);
       } else {
         handleError(message);
       }

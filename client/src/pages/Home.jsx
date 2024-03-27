@@ -16,7 +16,7 @@ const Home = () => {
       }
 
       const { data } = await axios.post(
-        `https://macrocosmos.onrender.com/login`,
+        `https://macrocosmos.onrender.com`,
         {},
         { withCredentials: true }
       );
